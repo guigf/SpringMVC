@@ -38,7 +38,7 @@ public class HomeController {
 	public ModelAndView listContact(ModelAndView model) throws IOException{
 		List<Contact> listContact = contactDAO.list();
 		model.addObject("listContact", listContact);
-		model.setViewName("home");
+		model.setViewName("contactIndex");
 		
 		return model;
 	}
