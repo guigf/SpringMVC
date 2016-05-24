@@ -154,8 +154,10 @@
 									<td><form:input path="telephone" /></td>
 								</tr>
 								<tr>
-									<td colspan="2" align="center"><input type="submit"
-										value="Save"></td>
+									<td colspan="2" align="center">
+										<a href="cancelSaving" id="btnNewContact" class="btn btnRed">Cancel</a> 
+										<input type="submit" value="Save" class="btnSaveContact">
+									</td>
 								</tr>
 							</table>
 							<div>

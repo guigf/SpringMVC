@@ -379,6 +379,25 @@ a.btnRed {
 	background-color: #f04124;
 }
 
+a.btnGreen {
+	background-color: green;
+}
+
+.btnSaveContact:hover{
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.btnSaveContact{
+	background-color: green;
+	padding: 5px 8px !important;
+	display: inline-block;
+	color: #ffffff;
+	text-decoration: none;
+	transition: opacity 0.2s ease-in;
+	border-radius: 15px;
+	border-style: none;
+}
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */

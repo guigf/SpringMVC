@@ -56,9 +56,14 @@ public class HomeController {
 	public ModelAndView saveContact(@ModelAttribute Contact contact) {
 		contactDAO.saveOrUpdate(contact);
 		return new ModelAndView("redirect:/contacts");
-		// teste
 	}
-
+	
+	@RequestMapping(value = "/cancelSaving")
+	public ModelAndView cancelSaving(@ModelAttribute Contact contact) {
+		//contactDAO.saveOrUpdate(contact);
+		return new ModelAndView("redirect:/contacts");
+	}
+	
 	@RequestMapping(value = "/deleteContact", method = RequestMethod.GET)
 	public ModelAndView deleteContact(HttpServletRequest request) {
 		int contactId = Integer.parseInt(request.getParameter("id"));
