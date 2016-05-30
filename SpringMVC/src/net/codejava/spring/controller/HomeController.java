@@ -51,6 +51,15 @@ public class HomeController {
 		model.setViewName("ContactForm");
 		return model;
 	}
+	
+	/*TESTANDO*/
+	@RequestMapping(value = "/newContactModal", method = RequestMethod.GET)
+	public ModelAndView newContactModal(ModelAndView model) {
+		Contact newContact = new Contact();
+		model.addObject("contact", newContact);
+		model.setViewName("cadastroContato");
+		return model;
+	}
 
 	@RequestMapping(value = "/saveContact", method = RequestMethod.POST)
 	public ModelAndView saveContact(@ModelAttribute Contact contact) {
@@ -76,6 +85,16 @@ public class HomeController {
 		int contactId = Integer.parseInt(request.getParameter("id"));
 		Contact contact = contactDAO.get(contactId);
 		ModelAndView model = new ModelAndView("ContactForm");
+		model.addObject("contact", contact);
+
+		return model;
+	}
+	
+	@RequestMapping(value = "/editContactModal", method = RequestMethod.GET)
+	public ModelAndView editContactModal(HttpServletRequest request) {
+		int contactId = Integer.parseInt(request.getParameter("id"));
+		Contact contact = contactDAO.get(contactId);
+		ModelAndView model = new ModelAndView("cadastroContato");
 		model.addObject("contact", contact);
 
 		return model;

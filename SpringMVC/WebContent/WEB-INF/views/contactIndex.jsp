@@ -2,22 +2,26 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <html>
 <head>
-<title>Contato</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
-	media="all">
-<!-- JAVASCRIPTS -->
-
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.fitvids.min.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
-<script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
-<script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
+	<title>Contato</title>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
+		media="all">
+	<!-- JAVASCRIPTS -->
+	
+	<script src="layout/scripts/jquery.min.js"></script>
+	<link rel="stylesheet"
+		href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="layout/scripts/jquery.fitvids.min.js"></script>
+	<script src="layout/scripts/jquery.mobilemenu.js"></script>
+	<script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
+	<script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
 
 </head>
 <body id="top">
@@ -133,7 +137,8 @@
 					<h1>Contact List</h1>
 					<h3>
 						<a href="newContact" id="btnNewContact" class="btn btnBlack">New
-							Contact</a>
+							Contact</a> <a href="##" id="btnNewContactModal" class="btn btnBlack">New
+							Contact TESTE</a>
 					</h3>
 					<table border="1">
 						<th>No</th>
@@ -153,16 +158,17 @@
 								<td><a href="editContact?id=${contact.id}"
 									class="btn btnBlue">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp; <a
 									href="deleteContact?id=${contact.id}" class="btn btnRed">Delete</a>
-								</td>
+									&nbsp;&nbsp;&nbsp;&nbsp; <a
+									<%-- href="editContactModal?id=${contact.id}" --%>id="btnEditarContatoModal"
+									href="#" meta-id="${contact.id}" class="btn btnBlue">EDITAR
+										TESTE</a></td>
 
 							</tr>
 						</c:forEach>
 					</table>
 
 					<div id="mdlContact" title="Contato">
-						<p>This is the default dialog which is useful for displaying
-							information. The dialog window can be moved, resized and closed
-							with the 'x' icon.</p>
+						
 					</div>
 				</div>
 
@@ -193,7 +199,15 @@
 
 	<script>
 		$(document).ready(function() {
-			console.log("AAA");
+			$('#btnNewContactModal').on('click', function() {
+
+				$.get("newContactModal", function(retorno) {
+					console.log(retorno);
+					$("#mdlContact").html(retorno);
+					$("#mdlContact").dialog();
+				});
+
+			});
 		});
 	</script>
 </body>
