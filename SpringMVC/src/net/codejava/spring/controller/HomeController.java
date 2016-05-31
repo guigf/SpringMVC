@@ -28,7 +28,7 @@ public class HomeController {
 	@Autowired
 	private ContactDAO contactDAO;
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/index")
 	public ModelAndView mainPage(ModelAndView model) throws IOException {
 		model.setViewName("index");
 

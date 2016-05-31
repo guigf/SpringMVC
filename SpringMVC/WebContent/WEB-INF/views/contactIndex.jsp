@@ -6,22 +6,21 @@
 
 <html>
 <head>
-	<title>Contato</title>
-	<meta charset="utf-8">
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
-		media="all">
-	<!-- JAVASCRIPTS -->
-	
-	<script src="layout/scripts/jquery.min.js"></script>
-	<link rel="stylesheet"
-		href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<script src="layout/scripts/jquery.fitvids.min.js"></script>
-	<script src="layout/scripts/jquery.mobilemenu.js"></script>
-	<script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
-	<script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
+<title>Contato</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
+	media="all">
+<!-- JAVASCRIPTS -->
+
+<script src="layout/scripts/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="layout/scripts/jquery.fitvids.min.js"></script>
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="layout/scripts/tabslet/jquery.tabslet.min.js"></script>
 
 </head>
 <body id="top">
@@ -136,11 +135,12 @@
 				<div align="center">
 					<h1>Contact List</h1>
 					<h3>
-						<a href="newContact" id="btnNewContact" class="btn btnBlack">New
-							Contact</a> <a href="##" id="btnNewContactModal" class="btn btnBlack">New
-							Contact TESTE</a>
+						<!-- <a href="newContact" id="btnNewContact" class="btn btnBlack">New Contact</a>  -->
+						<a href="##" id="btnNewContactModal" class="btn btnBlack">New
+							Contact</a>
 					</h3>
 					<table border="1">
+						
 						<th>No</th>
 						<th>Name</th>
 						<th>Email</th>
@@ -155,21 +155,18 @@
 								<td>${contact.email}</td>
 								<td>${contact.address}</td>
 								<td>${contact.telephone}</td>
-								<td><a href="editContact?id=${contact.id}"
-									class="btn btnBlue">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp; <a
-									href="deleteContact?id=${contact.id}" class="btn btnRed">Delete</a>
-									&nbsp;&nbsp;&nbsp;&nbsp; <a
-									<%-- href="editContactModal?id=${contact.id}" --%>id="btnEditarContatoModal"
-									href="#" meta-id="${contact.id}" class="btn btnBlue">EDITAR
-										TESTE</a></td>
+								<td><%-- <a href="editContact?id=${contact.id}" class="btn btnBlue">Edit</a> --%>
+								<a href="##" meta-id="${contact.id}"
+									class="btn btnBlue btnEditarContatoModal">Edit</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="deleteContact?id=${contact.id}" class="btn btnRed">Delete</a>
+								</td>
 
 							</tr>
 						</c:forEach>
 					</table>
 
-					<div id="mdlContact" title="Contato">
-						
-					</div>
+					<div id="mdlContact" title="Contato"></div>
 				</div>
 
 			</div>
@@ -200,14 +197,44 @@
 	<script>
 		$(document).ready(function() {
 			$('#btnNewContactModal').on('click', function() {
-
 				$.get("newContactModal", function(retorno) {
-					console.log(retorno);
 					$("#mdlContact").html(retorno);
-					$("#mdlContact").dialog();
+					$("#mdlContact").dialog({
+						height : 300,
+						width : 500,
+						resizable : false,
+						draggable : false,
+						at : "center",
+						of : window,
+						show : {
+							effect : "blind",
+							duration : 800
+						//easing : 'easeInOutBack' 
+						}
+					//easeInOutElastic
+					});
 				});
-
 			});
+
+			$('.btnEditarContatoModal').on('click', function() {
+				var id = $(this).attr('meta-id');
+				$.get("editContactModal?id=" + id, function(retorno) {
+					$("#mdlContact").html(retorno);
+					$("#mdlContact").dialog({
+						height : 300,
+						width : 500,
+						resizable : false,
+						draggable : false,
+						at : "center",
+						of : window,
+						show : {
+							effect : "blind",
+							duration : 800
+						}
+					});
+				});
+			});
+
 		});
 	</script>
 </body>
