@@ -256,7 +256,7 @@ td{border-width:0 1px;}
 #mainav li li:first-child a, #slide-wrapper figure img, #slide-wrapper figure .view:hover::before{border-radius:8px 8px 0 0;}
 
 #slider #slide-tabs li:first-child a{border-radius:8px 0 0 8px;}
-#slider #slide-tabs li:last-child a{border-radius:0 0 8px 8px;}
+#slider #slide-tabs li:last-child a{border-radius:0 8px 8px 0;}
 
 
 /* ------------------------------------------------------------------------------------------------------------ */
