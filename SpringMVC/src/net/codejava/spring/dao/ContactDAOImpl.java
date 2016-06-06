@@ -53,22 +53,7 @@ public class ContactDAOImpl implements ContactDAO {
 	@Override
 	public List<Contact> list() {
 		String sql = "SELECT * FROM contact";
-		List<Contact> listContact = jdbcTemplate.query(sql, new RowMapper<Contact>() {
-
-			@Override
-			public Contact mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Contact aContact = new Contact();
-	
-				aContact.setId(rs.getInt("contact_id"));
-				aContact.setName(rs.getString("name"));
-				aContact.setEmail(rs.getString("email"));
-				aContact.setAddress(rs.getString("address"));
-				aContact.setTelephone(rs.getString("telephone"));
-				
-				return aContact;
-			}
-			
-		});
+		List<Contact> listContact = jdbcTemplate.query(sql, new ContatoRowMapper());
 		
 		return listContact;
 	}

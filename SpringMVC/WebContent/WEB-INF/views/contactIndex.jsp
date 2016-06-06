@@ -128,6 +128,7 @@
 	</div>
 
 
+
 	<div class="wrapper">
 		<div id="slider">
 			<div id="slide-wrapper" class="rounded clear">
@@ -140,7 +141,7 @@
 							Contact</a>
 					</h3>
 					<table border="1">
-						
+
 						<th>No</th>
 						<th>Name</th>
 						<th>Email</th>
@@ -155,11 +156,12 @@
 								<td>${contact.email}</td>
 								<td>${contact.address}</td>
 								<td>${contact.telephone}</td>
-								<td><%-- <a href="editContact?id=${contact.id}" class="btn btnBlue">Edit</a> --%>
-								<a href="##" meta-id="${contact.id}"
+								<td>
+									<%-- <a href="editContact?id=${contact.id}" class="btn btnBlue">Edit</a> --%>
+									<a href="##" meta-id="${contact.id}"
 									class="btn btnBlue btnEditarContatoModal">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="deleteContact?id=${contact.id}" class="btn btnRed">Delete</a>
+									&nbsp;&nbsp;&nbsp;&nbsp; <a
+									href="deleteContact?id=${contact.id}" class="btn btnRed">Delete</a>
 								</td>
 
 							</tr>
@@ -170,13 +172,21 @@
 				</div>
 
 			</div>
-			<ul id="slide-tabs">
-				<li><a href="contacts">Exercício Final (Lista de Contatos)</a></li>
-				<li><a href="#slide-1">Material Oracle</a></li>
-				<li><a href="#slide-1">Material Agile Center</a></li>
-			</ul>
+
 		</div>
 
+	</div>
+
+	<div class="wrapper row3">
+		<div id="slider">
+			<div class="">
+				<ul id="slide-tabs">
+					<li><a href="contacts">Exercício Final (Lista de Contatos)</a></li>
+					<li><a href="#slide-1">Material Oracle</a></li>
+					<li><a href="#slide-1">Material Agile Center</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
 
 	<div class="wrapper row4"></div>

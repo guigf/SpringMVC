@@ -255,8 +255,8 @@ td{border-width:0 1px;}
 #mainav li li:last-child a{border-radius:0 0 8px 8px;}
 #mainav li li:first-child a, #slide-wrapper figure img, #slide-wrapper figure .view:hover::before{border-radius:8px 8px 0 0;}
 
-#slider #slide-tabs li:first-child a{border-radius:0 0 0 8px;}
-#slider #slide-tabs li:last-child a{border-radius:0 0 8px 0;}
+#slider #slide-tabs li:first-child a{border-radius:8px 0 0 8px;}
+#slider #slide-tabs li:last-child a{border-radius:0 0 8px 8px;}
 
 
 /* ------------------------------------------------------------------------------------------------------------ */
@@ -403,6 +403,14 @@ a.btnGreen {
 #mdlContact{
 	width: 500px;
 	heigth: 285px;	
+}
+
+/*  */
+#divLogin{
+	margin: 0 auto;
+	width: 250px;
+	height: 250px;
+	padding-top: 35vh; 
 }
 
 /* ------------------------------------------------------------------------------------------------------------ */
