@@ -7,9 +7,11 @@
 <html>
 <head>
 <title>Contato</title>
+
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
 	media="all">
 <!-- JAVASCRIPTS -->
@@ -67,12 +69,12 @@
 					</table>
 
 					<div id="mdlContact" title="Contato"></div>
+
 				</div>
 
 			</div>
 
 		</div>
-
 	</div>
 
 	<%@include file="footer.jsp"%>
@@ -83,17 +85,25 @@
 				$.get("newContactModal", function(retorno) {
 					$("#mdlContact").html(retorno);
 					$("#mdlContact").dialog({
-						height : 300,
+						height : 255,
 						width : 500,
 						resizable : false,
 						draggable : false,
+						modal : true,
 						at : "center",
 						of : window,
 						show : {
 							effect : "blind",
 							duration : 800
 						//easing : 'easeInOutBack' 
-						}
+						},
+						open: function() {
+					        $('.ui-widget-overlay').addClass('custom-overlay');
+					    },
+					    close: function() {
+					        $('.ui-widget-overlay').removeClass('custom-overlay');
+					    },
+					    title: "New Contact"
 					//easeInOutElastic
 					});
 				});
@@ -104,16 +114,24 @@
 				$.get("editContactModal?id=" + id, function(retorno) {
 					$("#mdlContact").html(retorno);
 					$("#mdlContact").dialog({
-						height : 300,
+						height : 255,
 						width : 500,
 						resizable : false,
 						draggable : false,
+						modal : true,
 						at : "center",
 						of : window,
 						show : {
 							effect : "blind",
 							duration : 800
-						}
+						},
+						open: function() {
+					        $('.ui-widget-overlay').addClass('custom-overlay');
+					    },
+					    close: function() {
+					        $('.ui-widget-overlay').removeClass('custom-overlay');
+					    },
+					    title: "Edit Contact"
 					});
 				});
 			});

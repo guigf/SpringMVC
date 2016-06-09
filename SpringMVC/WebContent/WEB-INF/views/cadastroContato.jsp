@@ -1,6 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div align="center">
-	<h1>New/Edit Contact</h1>
 	<form:form action="saveContact" method="post" modelAttribute="contact">
 		<table>
 			<form:hidden path="id" />
@@ -31,3 +30,7 @@
 		</div>
 	</form:form>
 </div>
+
+<script>
+	//$('#mdlContact').dialog('close');
+</script>
