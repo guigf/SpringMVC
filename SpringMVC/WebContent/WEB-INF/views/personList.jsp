@@ -30,7 +30,7 @@
 </head>
 <body id="top">
 
-	<%@include file="header.jsp"%>
+	<%@include file="/WEB-INF/views/Includes/header.jsp"%>
 
 	<div class="wrapper">
 		<div id="slider">
@@ -62,7 +62,7 @@
 		</div>
 	</div>
 
-	<%@include file="footer.jsp"%>
+	<%@include file="/WEB-INF/views/Includes/footer.jsp"%>
 
 	<script type="text/javascript">
 		$(document).ready(function() {

@@ -6,7 +6,7 @@
 
 <html>
 <head>
-<title>Contato</title>
+<title>Contact</title>
 
 <meta charset="utf-8">
 <meta name="viewport"
@@ -27,7 +27,7 @@
 </head>
 <body id="top">
 
-	<%@include file="header.jsp"%>
+	<%@include file="/WEB-INF/views/Includes/header.jsp"%>
 
 	<div class="wrapper">
 		<div id="slider">
@@ -37,7 +37,7 @@
 					<h1>Contact List</h1>
 					<h3>
 						<!-- <a href="newContact" id="btnNewContact" class="btn btnBlack">New Contact</a>  -->
-						<a href="##" id="btnNewContactModal" class="btn btnBlack">New
+						<a href="##" id="btnNewContact" class="btn btnBlack">New
 							Contact</a>
 					</h3>
 					<table border="1">
@@ -59,7 +59,7 @@
 								<td>
 									<%-- <a href="editContact?id=${contact.id}" class="btn btnBlue">Edit</a> --%>
 									<a href="##" meta-id="${contact.id}"
-									class="btn btnBlue btnEditarContatoModal">Edit</a>
+									class="btn btnBlue btnEditContact">Edit</a>
 									&nbsp;&nbsp;&nbsp;&nbsp; <a
 									href="deleteContact?id=${contact.id}" class="btn btnRed">Delete</a>
 								</td>
@@ -77,12 +77,12 @@
 		</div>
 	</div>
 
-	<%@include file="footer.jsp"%>
+	<%@include file="/WEB-INF/views/Includes/footer.jsp"%>
 
 	<script>
 		$(document).ready(function() {
-			$('#btnNewContactModal').on('click', function() {
-				$.get("newContactModal", function(retorno) {
+			$('#btnNewContact').on('click', function() {
+				$.get("newContact", function(retorno) {
 					$("#mdlContact").html(retorno);
 					$("#mdlContact").dialog({
 						height : 255,
@@ -109,9 +109,9 @@
 				});
 			});
 
-			$('.btnEditarContatoModal').on('click', function() {
+			$('.btnEditContact').on('click', function() {
 				var id = $(this).attr('meta-id');
-				$.get("editContactModal?id=" + id, function(retorno) {
+				$.get("editContact?id=" + id, function(retorno) {
 					$("#mdlContact").html(retorno);
 					$("#mdlContact").dialog({
 						height : 255,
